@@ -1,0 +1,100 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: #FF512F;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #DD2476, #FF512F);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #DD2476, #FF512F);
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+}
+.activo  {
+    background-color: #49d066 ;
+}
+.marcadores {
+    display: flex;
+    width: 100%;
+}
+.containerboton {
+    display: flex;
+    justify-content: center;
+}
+
+.boton {
+    margin: 20px;
+    border: 2px solid #ccc;
+}
+
+.containercards {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    width: 408px;
+    height: 408px;
+    margin: 0 auto;
+    border: 1 px solid #ccc;
+    overflow: hidden;
+}
+.containercards::before{
+    content: '';
+    top: -50%;
+    left: -50%;
+    position: absolute;
+    width: 408px;
+    height: 408px;
+    background: linear-gradient(0deg, transparent, red, red);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+}
+.container2 {
+    position: relative;
+    margin: 0 auto;
+    width: 408px;
+    height: 408px;
+    inset: 2px;
+    background-color: #49d066;
+    z-index: 10;
+    
+}
+@keyframes animate  {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+.carta {
+    width: 100px;
+    height: 100px;
+    margin: 1px;
+
+    perspective: 1000px;
+    background-image: url('img/fondo.jpg');
+    background-size: contain;
+}
+
+.carta img {
+    visibility: inherit;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    backface-visibility: hidden;
+    transition: transform 0.6s ease;
+}
+
+.carta.volteada img {
+    transform: rotateY(180deg);
+}
+
+.carta.acertada {
+    opacity: 0.5;
+    pointer-events: none;
+}
+.sinClick {
+pointer-events: none!important;
+}
